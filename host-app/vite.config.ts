@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import {federation} from "@module-federation/vite";
+import federation from "@originjs/vite-plugin-federation";
 
 export default defineConfig({
   plugins: [
@@ -8,12 +8,20 @@ export default defineConfig({
     federation({
       name: "hostApp",
       remotes: {
-        remoteWeather: "http://localhost:5001/remoteEntry.js",
+        remoteWeather: "http://localhost:5001/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: {
+        react: {},
+        "react-dom": {},
+      },
     }),
   ],
   server: {
     port: 5000,
+  },
+  build: {
+    target: "esnext",
+    minify: false,
+    modulePreload: false,
   },
 });

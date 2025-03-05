@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import {federation} from "@module-federation/vite";
+import federation from "@originjs/vite-plugin-federation";
 
 export default defineConfig({
   plugins: [
@@ -16,7 +16,7 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 5001, // Ensure this port is correct
+    port: 5001,
   },
   build: {
     target: "esnext",
