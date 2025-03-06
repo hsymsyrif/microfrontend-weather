@@ -16,6 +16,7 @@ export default defineConfig({
     }),
   ],
   server: {
+    host: "10.100.2.250",
     port: 5001,
   },
   build: {

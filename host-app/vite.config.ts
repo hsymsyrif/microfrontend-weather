@@ -10,13 +10,11 @@ export default defineConfig({
       remotes: {
         remoteWeather: "http://localhost:5001/assets/remoteEntry.js",
       },
-      shared: {
-        react: {},
-        "react-dom": {},
-      },
+      shared: ["react", "react-dom"],
     }),
   ],
   server: {
+    
     port: 5000,
   },
   build: {

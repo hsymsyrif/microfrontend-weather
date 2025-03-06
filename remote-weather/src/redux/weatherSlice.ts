@@ -1,14 +1,13 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Define types for the weather data
 interface WeatherState {
   data: {
-    name: string; // City name
+    name: string;
     main: {
-      temp: number; // Temperature in Kelvin
+      temp: number;
     };
-    weather: { description: string }[]; // Weather description
+    weather: { description: string }[];
   } | null;
   loading: boolean;
 }
@@ -20,11 +19,9 @@ const initialState: WeatherState = {
 
 // Fetch weather data from OpenWeatherMap
 export const fetchWeather = createAsyncThunk("weather/fetch", async () => {
-  const API_KEY = "___";
+  const API_KEY = "85fffcb662081b5c678b00e00b99a2e2";
   const CITY = "Jakarta";
-  const response = await axios.get(
-    `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`
-  );
+  const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`);
   return response.data;
 });
 
