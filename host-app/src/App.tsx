@@ -80,6 +80,9 @@ function App() {
                   Weather Dashboard
                 </h1>
 
+                {/* Divider */}
+                <hr className="my-4 border-2 border-dark" />
+
                 {/* Weather Widget */}
                 <div className="row justify-content-center">
                   <div className="col-12 col-md-10">
